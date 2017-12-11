@@ -24,19 +24,7 @@
     </build>
 
 
-    <dependencies>
-        <dependency>
-            <groupId>com.zhenai.dubbo.interface</groupId>
-            <artifactId>interface-parent</artifactId>
-            <version>interface-SNAPSHOT</version>
-            <type>pom</type>
-            <exclusions>
-                <exclusion>
-                    <artifactId>servlet-api</artifactId>
-                    <groupId>javax.servlet</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+    <dependencies> 
         <dependency>
             <groupId>com.esotericsoftware.kryo</groupId>
             <artifactId>kryo</artifactId>

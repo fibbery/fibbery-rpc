@@ -20,7 +20,7 @@ public class KryoSerializer implements Serializer{
         output.flush();
         output.close();
         byte[] bytes = baos.toByteArray();
-
+        return bytes;
     }
 
     @Override
