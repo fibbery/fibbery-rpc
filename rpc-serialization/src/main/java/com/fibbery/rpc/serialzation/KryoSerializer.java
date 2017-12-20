@@ -6,7 +6,7 @@ import com.esotericsoftware.kryo.io.Output;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.net.URL;
+import java.io.IOException;
 
 /**
  * @author fibbery
