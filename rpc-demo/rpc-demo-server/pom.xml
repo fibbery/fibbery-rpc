@@ -10,11 +10,43 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>rpc-demo-server</artifactId>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <dependencies>
         <dependency>
             <groupId>com.fibbery</groupId>
             <artifactId>rpc-demo-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fibbery</groupId>
+            <artifactId>rpc-transport</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.5.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fibbery</groupId>
+            <artifactId>rpc-registry</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fibbery</groupId>
+            <artifactId>rpc-codec</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

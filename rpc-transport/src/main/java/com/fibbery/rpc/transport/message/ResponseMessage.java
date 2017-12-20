@@ -19,7 +19,7 @@ public class ResponseMessage implements Serializable{
 
     private Object result;
 
-    public ResponseMessage(Long responseId) {
+    public ResponseMessage() {
         this.responseId = sequence.getAndIncrement();
     }
 

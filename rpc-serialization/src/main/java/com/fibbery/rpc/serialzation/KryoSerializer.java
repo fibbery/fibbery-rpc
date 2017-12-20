@@ -1,10 +1,12 @@
 package com.fibbery.rpc.serialzation;
 
 import com.esotericsoftware.kryo.Kryo;
+import com.esotericsoftware.kryo.io.Input;
 import com.esotericsoftware.kryo.io.Output;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.net.URL;
+import java.io.IOException;
 
 /**
  * @author fibbery
@@ -20,16 +22,27 @@ public class KryoSerializer implements Serializer{
         output.flush();
         output.close();
         byte[] bytes = baos.toByteArray();
-
+        try {
+            baos.flush();
+            baos.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return bytes;
     }
 
     @Override
     public <T> T deserialize(byte[] bytes, Class<T> clazz) {
-        return null;
-    }
-
-    public static void main(String[] args) {
-        URL location = KryoSerializer.class.getProtectionDomain().getCodeSource().getLocation();
-        System.out.println(location);
+        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+        Input input = new Input(bais);
+        Kryo kryo = new Kryo();
+        T object = kryo.readObject(input, clazz);
+        input.close();
+        try {
+            bais.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return object;
     }
 }

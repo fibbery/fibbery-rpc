@@ -14,6 +14,14 @@ public class Address implements Serializable {
 
     private int port;
 
+    public Address(String host, int port) {
+        this.host = host;
+        this.port = port;
+    }
+
+    public Address() {
+    }
+
     public String getHost() {
         return host;
     }

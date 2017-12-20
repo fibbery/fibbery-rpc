@@ -32,7 +32,7 @@ public class ZookeeperRegistry {
 
 
     public List<Address> searchServiceAddress(SubscribeMeta meta) {
-        String path = String.format("/fibbery/rpc/%s/%s/%s/%s:%s",
+        String path = String.format("/fibbery/rpc/%s/%s/%s",
                 meta.getServiceName(),
                 meta.getGroup(),
                 meta.getVersion());
@@ -43,7 +43,7 @@ public class ZookeeperRegistry {
             String[] strs = child.split(":");
             address.setHost(strs[0]);
             address.setPort(Integer.parseInt(strs[1]));
-            addresses.add(new Address());
+            addresses.add(address);
         });
         return addresses;
     }
